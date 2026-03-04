@@ -1,6 +1,33 @@
 server:
   port: 8082
 
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10     # ??? ???? ??
+    lease-expiration-duration-in-seconds: 30  # ??? ??? ?? ??
+    prefer-ip-address: true                   # ? ??? ??? ? Hostname ?? IP ?? ????
+  client:
+    service-url:
+      defaultZone: http://localhost:9090/eureka
+    register-with-eureka: true # ?? ??? IP??? ???? ??
+    fetch-registry: true       # ???? ??? ???? ???? ?
+
+
+
 spring:
   application:
-    name: board_query
+    name: board-query
+
+  datasource:
+    river-class-name: org.mariadb.jdbc.Driver
+    url: ${SLAVE_DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASS}
+
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
