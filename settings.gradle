@@ -1,0 +1,4 @@
+rootProject.name = 'board_cqrs'
+
+include 'board_command'
+include 'board_query'
