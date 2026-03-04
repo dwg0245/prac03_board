@@ -14,6 +14,8 @@ dependencyManagement {
 }
 
 dependencies {
+    // 내가 만든 코드 가져올 때, 의존성 추가
+    implementation project(':board_core')
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
     // Swagger(스웨거) UI
