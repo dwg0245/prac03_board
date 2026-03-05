@@ -38,6 +38,7 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.LongSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
+
 logging:
   level:
     crg.example.reply_command: debug

@@ -2,7 +2,9 @@ package org.example.reply_command;
 
 import org.example.reply_command.model.ReplyDto;
 import lombok.RequiredArgsConstructor;
+import org.example.reply_command.model.ReplyEvent;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.example.board_core.common.model.BaseResponse;
 

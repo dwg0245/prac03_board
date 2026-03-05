@@ -20,7 +20,7 @@ spring:
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: ${REPLY_COMMAND_DB_URL}
+    url: ${REPLY_QUERY_DB_URL}
     username: ${DB_USER}
     password: ${DB_PASS}
 
@@ -34,10 +34,15 @@ spring:
 
   kafka:
     bootstrap-servers: 192.168.23.10:9092
-    producer:
-      # ???
-      key-serializer: org.apache.kafka.common.serialization.LongSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+
+      key-deserializer: org.apache.kafka.common.serialization.LongDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      group-id: reply-group-1
+
+      properties:
+        spring.json.trusted.packages: "*"
+        spring.json.use.type.headers: false
 
 logging:
   level:
