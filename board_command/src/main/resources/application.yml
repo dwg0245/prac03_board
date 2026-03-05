@@ -11,13 +11,15 @@ eureka:
       defaultZone: http://localhost:9090/eureka
     register-with-eureka: false # 현재 자신의 IP주소를 유레카에 등록
     fetch-registry: true        # 유레카에 등록된 주소들을 받아오는 것
+
+
 spring:
   application:
     name: board-command
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: ${MASTER_DB_URL}
+    url: ${COMMAND_DB_URL}
     username: ${DB_USER}
     password: ${DB_PASS}
 
@@ -29,8 +31,15 @@ spring:
       hibernate:
         format_sql: true
 
-  logging:
-    level:
-      com.example.demo: debug
-      org.hibernate.SQL: debug
-      org.hibernate.orm.jdbc.bind: trace
+  kafka:
+    bootstrap-servers: 192.168.23.10:9092
+    producer:
+      # 직렬화
+      key-serializer: org.apache.kafka.common.serialization.LongSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+logging:
+  level:
+    crg.example.board_command: debug
+    org.hibernate.SQL: debug
+    org.hibernate.orm.jdbc.bind: trace

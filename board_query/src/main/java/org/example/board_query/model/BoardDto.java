@@ -3,6 +3,7 @@ package org.example.board_query.model;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
