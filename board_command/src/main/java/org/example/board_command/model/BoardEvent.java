@@ -16,6 +16,8 @@ public class BoardEvent {
         private Long idx;
         private String title;
         private String contents;
+        private Long user_idx;
+        private String user_name;
 
         public static Create from(Board entity) {
             return Create.builder()
@@ -25,6 +27,8 @@ public class BoardEvent {
                     .idx(entity.getIdx())
                     .title(entity.getTitle())
                     .contents(entity.getContents())
+                    .user_idx(entity.getIdx())
+                    .user_name(entity.getUserName())
                     .build();
         }
     }

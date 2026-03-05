@@ -15,12 +15,16 @@ public class BoardEvent {
         private Long idx;
         private String title;
         private String contents;
+        private Long user_idx;
+        private String user_name;
 
         public Board toEntity(){
             return Board.builder()
                     .idx(this.idx)
                     .title(this.title)
                     .contents(this.contents)
+                    .userIdx(this.user_idx)
+                    .userName(this.user_name)
                     .build();
         }
 
