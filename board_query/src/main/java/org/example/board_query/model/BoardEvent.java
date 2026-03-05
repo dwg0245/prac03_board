@@ -9,9 +9,9 @@ public class BoardEvent {
     @Getter
     @ToString
     public static class Create{
-        private String uuid;
-        private String eventType;
-        private LocalDateTime issueAt;
+        private String uuid;            // 고유키
+        private String eventType;       // 어떤 이벤트가 발생을 했는지
+        private LocalDateTime issueAt;  // 발생 시간
         private Long idx;
         private String title;
         private String contents;
