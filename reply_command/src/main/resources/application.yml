@@ -1,25 +1,25 @@
 server:
-  port: 8081
+  port: 8084
 
 eureka:
   instance:
-    lease-renewal-interval-in-seconds: 10     # 주소를 갱신하는 시간
-    lease-expiration-duration-in-seconds: 30  # 가져온 주소의 만료 시간
-    prefer-ip-address: true                   # 내 주소를 알려줄 때 Hostname 대신 IP 주소 알려주기
+    lease-renewal-interval-in-seconds: 10     # ??? ???? ??
+    lease-expiration-duration-in-seconds: 30  # ??? ??? ?? ??
+    prefer-ip-address: true                   # ? ??? ??? ? Hostname ?? IP ?? ????
   client:
     service-url:
       defaultZone: http://localhost:9090/eureka
-    register-with-eureka: false # 현재 자신의 IP주소를 유레카에 등록
-    fetch-registry: true        # 유레카에 등록된 주소들을 받아오는 것
+    register-with-eureka: false # ?? ??? IP??? ???? ??
+    fetch-registry: true        # ???? ??? ???? ???? ?
 
 
 spring:
   application:
-    name: board-command
+    name: reply_command
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: ${COMMAND_DB_URL}
+    url: ${REPLY_COMMAND_DB_URL}
     username: ${DB_USER}
     password: ${DB_PASS}
 
@@ -34,12 +34,13 @@ spring:
   kafka:
     bootstrap-servers: 192.168.23.10:9092
     producer:
-      # 직렬화
+      # ???
       key-serializer: org.apache.kafka.common.serialization.LongSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
+
 logging:
   level:
-    crg.example.board_command: debug
+    crg.example.reply_command: debug
     org.hibernate.SQL: debug
     org.hibernate.orm.jdbc.bind: trace
